@@ -1,6 +1,6 @@
 // 1
+console.log(hello); // undefined
 var hello = "world";
-console.log(hello);
 
 // 2
 function test(){
@@ -8,7 +8,7 @@ function test(){
     console.log(needle);
 }
 var needle = 'haystack';
-test();
+test(); // "magnet"
 
 // 3
 var brendan = 'super cool';
@@ -17,6 +17,7 @@ function print(){
     console.log(brendan);
 }
 console.log(brendan);
+// super cool
 
 // 4
 var food = "chicken";
@@ -27,6 +28,8 @@ function eat() {
     console.log(food);
     var food = "gone";
 }
+// chicken
+// half-chicken
 
 // 5
 mean();
@@ -38,43 +41,64 @@ var mean = function () {
     console.log(food);
 }
 console.log(food);
+// error undefined
 
 
 // 6
-mean();
-console.log(food);
-var mean = function () {
-    food = "chicken";
-    console.log(food);
-    var food = "fish";
-    console.log(food);
+console.log(genre);
+var genre = "disco";
+rewind();
+function rewind() {
+    genre = "rock";
+    console.log(genre);
+    var genre = "r&b";
+    console.log(genre);
 }
-console.log(food);
+console.log(genre);
+// Undefined
+// rock
+// r&b
+// disco
 
 
 // 7
-mean();
-console.log(food);
-var mean = function () {
-    food = "chicken";
-    console.log(food);
-    var food = "fish";
-    console.log(food);
+dojo = "san jose";
+console.log(dojo);
+learn();
+function learn() {
+    dojo = "seattle";
+    console.log(dojo);
+    var dojo = "burbank";
+    console.log(dojo);
 }
-console.log(food);
+console.log(dojo);
+// san jose
+// seattle
+// burbank
+// san jose
 
 
 
 // 8
-mean();
-console.log(food);
-var mean = function () {
-    food = "chicken";
-    console.log(food);
-    var food = "fish";
-    console.log(food);
+console.log(makeDojo("Chicago", 65));
+console.log(makeDojo("Berkeley", 0));
+function makeDojo(name, students){
+    const dojo = {};
+    dojo.name = name;
+    dojo.students = students;
+    if(dojo.students > 50){
+        dojo.hiring = true;
+    }
+    else if(dojo.students <= 0){
+        // dojo = "closed for now";
+        dojo.hiring = "closed for now";
+    }
+    return dojo;
 }
-console.log(food);
 
+
+// error in const
+// { name: 'Chicago', students: 65, hiring: true }
+// { name: 'Berkeley', students: 0, hiring: closed for now }
 
 
