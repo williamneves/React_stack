@@ -5,18 +5,21 @@ class Counter extends Component {
     state = {
         count: 0,
         imageUrl: "https://picsum.photos/200",
-        tags: ["tag1", "tag2", "tag3"]
+    }
+
+    handleIncrement = () => {
+        console.log('Increment Clicked');
+        this.setState({ count: this.state.count + 1 });
     }
 
 	render() {
 		
 		return (
 			<React.Fragment>
+                <div className="mx-auto my-5 card p-3 w-25">
 				<span className={ this.getBadgeClasses() }>{ this.formatCount() }</span>
-				<button className="btn btn-secondary btn-sm" onClick={this.state.count++}>increment</button>
-                <ul>
-                    { this.state.tags.map(tag => <li key={tag}>{tag}</li>) }
-                </ul>
+				<button onClick={ this.handleIncrement } className="btn btn-secondary btn-sm">increment</button>
+                </div>
 			</React.Fragment>
 		);
 	}
@@ -30,10 +33,6 @@ class Counter extends Component {
     formatCount() {
         const { count } = this.state;
         return count === 0 ? 'Zero' : count;
-    }
-
-    incrementCount() {
-        this.setState({ count: this.state.count + 1 });
     }
 
 }
