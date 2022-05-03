@@ -16,7 +16,7 @@ class Counter extends Component {
 		
 		return (
 			<React.Fragment>
-                <div className="mx-auto my-5 card p-3 w-25">
+                <div className="mx-auto mt-2 p-3 col-6">
 				<span className={ this.getBadgeClasses() }>{ this.formatCount() }</span>
 				<button onClick={ this.handleIncrement } className="btn btn-secondary btn-sm">increment</button>
                 </div>
