@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bulma/css/bulma.css';
-import '@fortawesome/fontawesome-pro/css/fontawesome.css';
+import '@fortawesome/fontawesome-pro/css/all.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
