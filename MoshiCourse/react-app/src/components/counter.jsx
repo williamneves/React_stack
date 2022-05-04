@@ -1,40 +1,33 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-
-    state = {
-        count: 0,
-        imageUrl: "https://picsum.photos/200",
-    }
-
-    handleIncrement = () => {
-        console.log('Increment Clicked');
-        this.setState({ count: this.state.count + 1 });
-    }
-
 	render() {
-		
+		const { onDelete, onIncrement, counter } = this.props;
 		return (
 			<React.Fragment>
-                <div className="mx-auto mt-2 p-3 col-6">
-				<span className={ this.getBadgeClasses() }>{ this.formatCount() }</span>
-				<button onClick={ this.handleIncrement } className="btn btn-secondary btn-sm">increment</button>
-                </div>
+				<div className='mt-2'>
+					<span className={this.getBadgeClasses()}>{this.formatCount()}</span>
+					<button onClick={() => onIncrement(counter)} className='btn btn-secondary btn-sm'>
+						increment
+					</button>
+					<button onClick={() => onDelete(counter.id)} className='btn btn-danger btn-sm m-2'>
+						Delete
+					</button>
+				</div>
 			</React.Fragment>
 		);
 	}
 
-    getBadgeClasses() {
-        let classes = "badge m-2 bg-";
-        classes += this.state.count === 0 ? "warning" : "primary";
-        return classes;
-    }
+	getBadgeClasses() {
+		let classes = 'badge m-2 bg-';
+		classes += this.props.counter.value === 0 ? 'warning' : 'primary';
+		return classes;
+	}
 
-    formatCount() {
-        const { count } = this.state;
-        return count === 0 ? 'Zero' : count;
-    }
-
+	formatCount() {
+		const { value } = this.props.counter;
+		return value === 0 ? 'Zero' : value;
+	}
 }
 
 export default Counter;
