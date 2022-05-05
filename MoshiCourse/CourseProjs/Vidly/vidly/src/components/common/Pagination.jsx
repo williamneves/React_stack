@@ -1,26 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import _ from 'lodash';
 import PropType from 'prop-types';
 
-const Pagination = (props) => {
-	const { itemsCount, pageSize, onPageChange, currentPage } = props;
+const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
 	const pagesCount = Math.ceil(itemsCount / pageSize);
 	if (pagesCount === 1) return null;
 	const pages = _.range(1, pagesCount + 1);
 
 	return (
-		<ul className='pagination-list'>
-			{pages.map((page) => (
-				<li key={page}>
-					<a
-						className={`pagination-link ${currentPage === page ? 'is-current' : ''}`}
-						onClick={() => onPageChange(page)}
-					>
-						{page}
-					</a>
-				</li>
-			))}
-		</ul>
+		<nav aria-label='Page navigation example'>
+			<ul className='pagination justify-content-start'>
+				{pages.map((page) => (
+					<li className={`page-item ${currentPage === page ? 'active' : ''}`} key={page}>
+						<span className={`page-link clicable`} onClick={() => onPageChange(page)}>
+							{page}
+						</span>
+					</li>
+				))}
+			</ul>
+		</nav>
 	);
 };
 
