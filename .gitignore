@@ -5,7 +5,7 @@
 /MyTests/mdbostrap-test
 
 # ignore all files in the node_modules folder for all projects
-**/node_modules/
+**node_modules
 
 # ignore vscode files
 .vscode/*
