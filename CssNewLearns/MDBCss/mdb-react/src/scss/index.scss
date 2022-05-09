@@ -1,0 +1,33 @@
+@import "./mdb.pro.scss";
+
+$my-theme-primary-light: #3378c2;
+$my-theme-secondary-light: #c27d33;
+
+$my-theme: mdb-light-theme($my-theme-primary-light, $my-theme-secondary-light);
+
+$my-theme-primary-dark: #98c3f1;
+$my-theme-secondary-dark: #f1c698;
+
+$dark-theme: mdb-dark-theme($my-theme-primary-dark, $my-theme-secondary-dark);
+
+@include mdb-theme($my-theme);
+
+// include theme styles
+.dark-skin {
+  @include mdb-theme($dark-theme);
+}
+
+.light-skin {
+  @include mdb-theme($my-theme);
+}
+// @import './mdb.pro.scss';
+
+// $my-theme-primary: #9c27b0; // theme primary color, change this value to customize theme
+// $my-theme-secondary: #69f0ae; // theme secondary color, change this value to customize theme
+
+// $my-theme: mdb-light-theme($my-theme-primary, $my-theme-secondary); // create the new theme using primary and
+
+
+// // include theme styles
+// @include mdb-theme($my-theme);
+
