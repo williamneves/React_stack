@@ -1,6 +1,9 @@
 # ignore DS_Store files
 **/.DS_Store
 
+/MoshiCourse/router-app
+/MyTests/mdbostrap-test
+
 # ignore vscode files
 .vscode/*
 !.vscode/settings.json

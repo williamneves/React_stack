@@ -10,6 +10,7 @@
     "mdb-react-ui-kit": "git+https://oauth2:fB8XvQxTi-mXaps_eYEE@git.mdbootstrap.com/mdb/react/mdb5/prd/mdb5-react-ui-kit-pro-essential",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-fade-in": "^2.0.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
