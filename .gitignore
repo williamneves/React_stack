@@ -4,6 +4,9 @@
 /MoshiCourse/router-app
 /MyTests/mdbostrap-test
 
+# ignore all files in the node_modules folder for all projects
+**/node_modules/
+
 # ignore vscode files
 .vscode/*
 !.vscode/settings.json
