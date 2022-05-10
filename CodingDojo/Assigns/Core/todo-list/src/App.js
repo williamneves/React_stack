@@ -1,16 +1,23 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ToDoInput from './components/ToDoInput';
 import ToDo from './components/Todo';
 import FadeIn from 'react-fade-in';
 
 function App() {
-	const [todos, setTodos] = useState([
-		{
-			task: 'Learn React',
-			status: true,
-		},
-	]);
+  const [todos, setTodos] = useState([]);
+
+	useEffect(() => {
+		const TODOLIST = localStorage.getItem('TODOLIST');
+		if (TODOLIST) {
+			setTodos(JSON.parse(TODOLIST));
+		}
+	}, []);
+
+	useEffect(() => {
+		if (todos.length > 0) localStorage.setItem('TODOLIST', JSON.stringify(todos));
+	}, [todos]);
+
 
 	// Adding new todo
 	const handleSubmit = (e) => {

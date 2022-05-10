@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const ToDo = ({ item, onDelete, onCheck, onEditInput }) => {
 	const [edit, setEdit] = useState({
@@ -49,7 +49,8 @@ const ToDo = ({ item, onDelete, onCheck, onEditInput }) => {
 								? 'bg-light'
 								: 'bg-success bg-opacity-25 text-decoration-line-through fst-italic'
 						}`}
-						aria-label='Text input with checkbox'
+            aria-label='Text input with checkbox'
+            onBlur={handleEdit}
 						value={item.task}
 						onChange={onEditInput}
 						disabled={edit.toogle === false ? false : true}

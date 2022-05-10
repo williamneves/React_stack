@@ -19,6 +19,10 @@ const ToDoInput = ({ onChange }) => {
 		if (e.target.task.value === '' || e.target.task.value.lenght <= 1) {
 			newState.validate = false;
 			seterrorVal(newState);
+			setTimeout(() => {
+				newState.validate = true;
+				seterrorVal(newState);
+			}, 800);
 			setShow(true);
 			return false;
 		} else {
@@ -31,9 +35,11 @@ const ToDoInput = ({ onChange }) => {
 
 	return (
 		<React.Fragment>
-			
 			<form onSubmit={validate}>
-				<div className={`input-group mb-3 ${errorVal.validate === false ? 'valide-error' : ''}`}>
+				<div
+					className={`input-group mb-3 ${
+						!errorVal.validate ? 'valide-error todo-input-error' : 'todo-input-no-error'
+					}`}>
 					<span className='input-group-text'>To-do:</span>
 					<input
 						name='task'
@@ -67,24 +73,24 @@ const ToDoInput = ({ onChange }) => {
 						data-bs-dismiss='toast'
 						aria-label='Close'></button>
 				</div>
-      </div>
-      <div style={{position:'absolute', bottom:0,right:0}}>
-        <Toast
-          onClose={ () => setShow( false ) }
-          className='m-5'
-                show={show}
-                delay={5000}
-          position={ 'top-right' }
-          bg={'danger'}
-                autohide>
-                <Toast.Header>
-                  <img src='holder.js/20x20?text=%20' className='rounded me-2' alt='' />
-                  <strong className='me-auto'>Error</strong>
-                  <small>now</small>
-                </Toast.Header>
-                <Toast.Body className='text-white'>{errorVal.message}!</Toast.Body>
-              </Toast>
-      </div>
+			</div>
+			<div style={{ position: 'absolute', bottom: 0, right: 0 }}>
+				<Toast
+					onClose={() => setShow(false)}
+					className='m-5'
+					show={show}
+					delay={5000}
+					position={'top-right'}
+					bg={'danger'}
+					autohide>
+					<Toast.Header>
+						<img src='holder.js/20x20?text=%20' className='rounded me-2' alt='' />
+						<strong className='me-auto'>Error</strong>
+						<small>now</small>
+					</Toast.Header>
+					<Toast.Body className='text-white'>{errorVal.message}!</Toast.Body>
+				</Toast>
+			</div>
 		</React.Fragment>
 	);
 };
