@@ -1,9 +1,8 @@
 import React from 'react';
 
-const Input = ({ name, value, label, onChange, type='text' }) => {
+const Input = ({ name, value, label, onChange, type = 'text', errorMessage }) => {
 	return (
-		<div className='form-group mb-3'>
-			<label htmlFor={name}>{label}</label>
+		<div className='form-floating mb-3'>
 			<input
 				id={name}
 				type={type}
@@ -13,6 +12,10 @@ const Input = ({ name, value, label, onChange, type='text' }) => {
 				value={value}
 				onChange={onChange}
 			/>
+			<label htmlFor={name}>{label}</label>
+			<small className='form-text text-danger'>
+				<span>{errorMessage[name] && errorMessage[name]}</span>
+			</small>
 		</div>
 	);
 };

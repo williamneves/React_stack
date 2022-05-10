@@ -1,11 +1,32 @@
 import React, { useState } from 'react';
 import Input from './common/Input';
+import Joi from 'joi-browser';
 
 const LoginForm = (props) => {
 	const [formData, setFormData] = useState({
 		username: '',
 		password: '',
 	});
+
+	const [errors, setErrors] = useState({});
+
+	const schema = {
+		username: Joi.string().required().label('Username'),
+		password: Joi.string().required(),
+	};
+
+	const validateForm = () => {
+		const result = Joi.validate(formData, schema, { abortEarly: false });
+		
+		if ( !result.error ) return null;
+		
+		for ( let error of result.error.details ) {
+			setErrors( ( prev ) => ( { ...prev, [ error.path[ 0 ] ]: error.message } ) );
+		}
+
+		return true
+
+	};
 
 	const handleChange = (event) => {
 		setFormData({
@@ -16,15 +37,11 @@ const LoginForm = (props) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// const form = e.target;
-		// const data = new FormData( form );
-		// const user = {
-		//   email: data.get( 'email' ),
-		//   password: data.get( 'password' )
-		console.log('submit');
-  };
-  
-  const { username, password } = formData;
+		const erros = validateForm();
+		console.log('submit', erros);
+	};
+
+	const { username, password } = formData;
 
 	return (
 		<React.Fragment>
@@ -33,17 +50,19 @@ const LoginForm = (props) => {
 				<form onSubmit={handleSubmit}>
 					<Input
 						name='username'
-						value={username}
+						value={ username }
 						label='Username'
-						onChange={handleChange}
+						onChange={ handleChange }
+						errorMessage={errors}
 					/>
-          <Input
-            name='password'
-            value={ password }
-            label='Password'
-            onChange={ handleChange }
-            type='password'
-          />
+					<Input
+						name='password'
+						value={password}
+						label='Password'
+						onChange={handleChange}
+						type='password'
+						errorMessage={errors}
+					/>
 					<button className='btn btn-primary' type='submit'>
 						Login
 					</button>
