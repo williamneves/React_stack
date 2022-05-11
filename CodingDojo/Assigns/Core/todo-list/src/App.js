@@ -8,14 +8,14 @@ function App() {
   const [todos, setTodos] = useState([]);
 
 	useEffect(() => {
-		const TODOLIST = localStorage.getItem('TODOLIST');
+		const TODOLIST = sessionStorage.getItem('TODOLIST');
 		if (TODOLIST) {
 			setTodos(JSON.parse(TODOLIST));
 		}
 	}, []);
 
 	useEffect(() => {
-		if (todos.length > 0) localStorage.setItem('TODOLIST', JSON.stringify(todos));
+		if (todos.length > 0) sessionStorage.setItem('TODOLIST', JSON.stringify(todos));
 	}, [todos]);
 
 
