@@ -50,6 +50,11 @@ const People = (props) => {
 			});
 	};
 
+	const getPlanetId = ( url ) => {
+		const urlArray = url.split( '/' ); // split the url into an array [https:,swapi.dev,api,planets,1,]
+		return urlArray[ urlArray.length - 2 ];
+	}
+
 	// if the isloading is true show the loading
 	if (isloading) {
 		return (
@@ -95,7 +100,7 @@ const People = (props) => {
 				<ListGroupItem>Skin Color: {results.skin_color}</ListGroupItem>
 				<ListGroupItem>Eye Color: {results.eye_color}</ListGroupItem>
 				<ListGroupItem>
-					<Link to={`/planets/${hometown.url[hometown.url.length - 2]}`}>
+					<Link to={`/planets/${getPlanetId(hometown.url)}`}>
 						Home Town: {hometown.name}
 					</Link>
 				</ListGroupItem>

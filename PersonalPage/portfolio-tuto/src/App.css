@@ -32,19 +32,22 @@ body {
   margin: 0;
 }
 
-.button{
+.button {
   border-radius: 34px;
-  border: none;
   color: white;
   font-size: 16px;
   padding: 11px 26px 11px 26px;
   background: linear-gradient(180deg, #fdc50f 26.71%, #fb982f 99.36%);
-  box-shadow: 0px 20px 24px rgba(0251,161,40,0.42);
+  box-shadow: 5px 7px 16px 0px rgb(251 161 40 / 42%);
   cursor: pointer;
+  border: 1px solid hsl(44deg 97% 53%);
+  /* border: none; */
 }
 
 .button:hover{
   background: white;
   color: var(--orange);
   border: 1px solid var(--orange);
+  box-shadow: 5px 7px 16px 0px rgb(251 161 40 / 42%);
+  
 }
