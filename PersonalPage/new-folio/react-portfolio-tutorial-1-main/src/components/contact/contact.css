@@ -16,7 +16,7 @@
   padding: 1.2rem;
   border-radius: 1.2rem;
   text-align: center;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   transition: var(--transition);
 }
 
@@ -56,6 +56,12 @@ textarea {
   border: 2px solid var(--color-primary-variant);
   resize: none;
   color: var(--color-white);
+  font-size: 1rem;
+}
+/* INput text area place holder*/
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-primary-variant);
 }
 
 /* ================ MEDIA QUERIES (MEDIUM DEVICES) ================= */

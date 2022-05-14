@@ -1,7 +1,7 @@
 import React from 'react'
 import './header.css'
 import CTA from './CTA'
-import ME from '../../assets/william.png'
+import ME from '../../assets/eu-landgradient.png'
 import HeaderSocial from './HeaderSocials'
 import { CgPushRight } from 'react-icons/cg';
 

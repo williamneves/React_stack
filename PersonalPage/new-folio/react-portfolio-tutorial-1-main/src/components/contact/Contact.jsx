@@ -1,7 +1,7 @@
 import React from 'react'
 import './contact.css'
 import {MdOutlineEmail} from 'react-icons/md'
-import {RiMessengerLine} from 'react-icons/ri'
+import {RiMessengerLine, RiMailSendLine} from 'react-icons/ri'
 import {BsWhatsapp} from 'react-icons/bs'
 import { useRef } from 'react';
 import emailjs from 'emailjs-com'
@@ -19,7 +19,7 @@ const Contact = () => {
 
   return (
     <section id='contact'>
-      <h5>Get In Touch</h5>
+      <h4>Get In Touch</h4>
       <h2>Contact Me</h2>
 
       <div className="container contact__container">
@@ -48,7 +48,7 @@ const Contact = () => {
           <input type="text" name='name' placeholder='Your Full Name' required />
           <input type="email" name='email' placeholder='Your Email' required />
           <textarea name="message" rows="7" placeholder='Your Message' required ></textarea>
-          <button type='submit' className='btn btn-primary'>Send Message</button>
+          <button type='submit' className='btn btn-primary'>Send Message <RiMailSendLine style={{fontSize:'1rem', verticalAlign: 'bottom', marginLeft:'8px'}}/></button>
         </form>
       </div>
     </section>
