@@ -2,7 +2,8 @@ import React from 'react'
 import './contact.css'
 import {MdOutlineEmail} from 'react-icons/md'
 import {RiMessengerLine, RiMailSendLine} from 'react-icons/ri'
-import {BsWhatsapp} from 'react-icons/bs'
+import { BsWhatsapp } from 'react-icons/bs'
+import {BiMessageSquareDetail} from 'react-icons/bi'
 import { useRef } from 'react';
 import emailjs from 'emailjs-com'
 
@@ -19,6 +20,7 @@ const Contact = () => {
 
   return (
     <section id='contact'>
+      <h2 style={{lineHeight:'0rem',fontSize:'1.5rem', color: 'rgba(255, 255, 255, 0.6)',marginBottom:'0.2rem',paddingTop:'10px'}}><BiMessageSquareDetail/></h2>
       <h4>Get In Touch</h4>
       <h2>Contact Me</h2>
 

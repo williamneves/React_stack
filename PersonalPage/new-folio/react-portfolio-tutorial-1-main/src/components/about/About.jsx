@@ -1,13 +1,15 @@
 import React from 'react'
 import './about.css'
 import ME from '../../assets/me-about2.jpg'
-import {FaAward} from 'react-icons/fa'
-import {FiUsers} from 'react-icons/fi'
-import {VscFolderLibrary} from 'react-icons/vsc'
+import {GiSmart, GiTeamUpgrade} from 'react-icons/gi'
+import {RiUserStarLine,RiContactsLine} from 'react-icons/ri'
+import {AiOutlineFundProjectionScreen} from 'react-icons/ai'
+import {MdOutlineFamilyRestroom} from 'react-icons/md'
 
 const About = () => {
   return (
     <section id='about'>
+      <h2 style={ { lineHeight: '0rem', fontSize: '1.5rem', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '0.2rem', paddingTop: '10px' } }><RiContactsLine/></h2>
       <h4>Get To Know</h4>
       <h2>About Me</h2>
 
@@ -21,26 +23,34 @@ const About = () => {
         <div className="about__content">
           <div className="about__cards">
             <article className='about__card'>
-              <FaAward className='about__icon'/>
-              <h5>Experience</h5>
-              <small>3+ Years Working</small>
+              <RiUserStarLine className='about__icon'/>
+              <h3>Experience</h3>
+              <small>For 10 years I led my team to overcome all goals.</small>
             </article>
 
             <article className='about__card'>
-              <FiUsers className='about__icon'/>
-              <h5>Clients</h5>
-              <small>200+ Worldwide</small>
+              <GiSmart className='about__icon'/>
+              <h3>Natual Solver</h3>
+              <small>Solving problems ispassion for the last 10 years.</small>
             </article>
 
             <article className='about__card'>
-              <VscFolderLibrary className='about__icon'/>
-              <h5>Projects</h5>
-              <small>80+ Completed</small>
+              <AiOutlineFundProjectionScreen className='about__icon'/>
+              <h3>Project Leader</h3>
+              <small>I led projects to success, leading in the face of difficulties.</small>
+            </article>
+            <article className='about__card'>
+              <MdOutlineFamilyRestroom className='about__icon'/>
+              <h3>Friendly</h3>
+              <small>I'm happy and positive. God and my family are my everything.</small>
             </article>
           </div>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque eos voluptatem eius dolorem maiores nihil ducimus at rem ullam reprehenderit quidem quia deserunt, molestiae, eligendi amet repellat molestias quos totam.
+          I'm a Full-Stack Software Engineer, looking for a different experience. After 10 years of <em>successful</em> corporate experience, I decided to challenge myself and follow the path that I am very good and passionate about, <b>solving problems</b>.
+          </p>
+          <p>
+          If you're looking for someone highly motivated, with experience and unique skills, you've found it. <b>Let's talk?</b>
           </p>
 
           <a href="#contact" className='btn btn-primary'>Let's Talk</a>
