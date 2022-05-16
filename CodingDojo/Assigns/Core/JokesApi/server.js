@@ -16,6 +16,7 @@ app.use(express.json(), express.urlencoded({ extended: true }));
 
 // use the routes
 const JokeRoutes = require('./server/routes/joke.routes');
+JokeRoutes(app);
 
 // app listen on port
 app.listen(port, () => {
