@@ -30,24 +30,24 @@ const About = () => {
 
             <article className='about__card'>
               <GiSmart className='about__icon'/>
-              <h3>Natual Solver</h3>
-              <small>Solving problems ispassion for the last 10 years.</small>
+              <h3>Problem Solver</h3>
+              <small>Solving problems is my passion.</small>
             </article>
 
             <article className='about__card'>
               <AiOutlineFundProjectionScreen className='about__icon'/>
               <h3>Project Leader</h3>
-              <small>I led projects to success, leading in the face of difficulties.</small>
+              <small>I lead delicate projects to success in the face of difficulties.</small>
             </article>
             <article className='about__card'>
               <MdOutlineFamilyRestroom className='about__icon'/>
               <h3>Friendly</h3>
-              <small>I'm happy and positive. God and my family are my everything.</small>
+              <small>I'm happy and positive.  God, family and my purpose are everything to me.</small>
             </article>
           </div>
 
           <p>
-          I'm a Full-Stack Software Engineer, looking for a different experience. After 10 years of <em>successful</em> corporate experience, I decided to challenge myself and follow the path that I am very good and passionate about, <b>solving problems</b>.
+          I'm a Full-Stack Software Engineer, looking for a different experience. After 10 years of <em>successful</em> corporate experience, I decided to challenge myself and follow the path that I am certain I will be more passionate and even better at.
           </p>
           <p>
           If you're looking for someone highly motivated, with experience and unique skills, you've found it. <b>Let's talk?</b>
