@@ -18,6 +18,9 @@ export default ({submited}) => {
             .then( res => {
                 submited();
                 console.log( res )
+                setTitle( "" );
+                setPrice( "" );
+                setDescription( "" );
             })
             .catch(err=>console.log(err))
     }

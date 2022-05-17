@@ -7,14 +7,16 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // Import main component
 import Main from './views/Main';
 import Product from './components/Product';
+import ProductUpdate from './components/ProductUpdate';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<Routes>
-				<Route path='/' element={<Main />}/>
-				<Route path='/product/:id' element={<Product />}/>
+				<Route path='/' element={<Main />} />
+				<Route path='/product/:id' element={<Product />} />
+				<Route path='/product/:id/edit' element={<ProductUpdate />} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>

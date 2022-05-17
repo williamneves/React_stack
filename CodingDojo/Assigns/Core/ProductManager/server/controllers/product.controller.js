@@ -28,8 +28,22 @@ module.exports.getProducts = ( request, response ) => {
 }
 
 // Get a single product
-module.exports.getProduct = ( request, response ) => {
-	Product.findById( request.params.id )
+module.exports.getProduct = (request, response) => {
+	Product.findById(request.params.id)
+		.then((product) => response.json(product))
+		.catch((error) => response.json(error));
+};
+
+// Edit a product
+module.exports.updateProduct = (request, response) => {
+	Product.findByIdAndUpdate(request.params.id, request.body, { new: true })
+		.then((product) => response.json(product))
+		.catch((error) => response.json(error));
+};
+
+// Delete a product
+module.exports.deleteProduct = ( request, response ) => {
+	Product.findByIdAndDelete( request.params.id )
 		.then( product => response.json( product ) )
 		.catch( error => response.json( error ) );
 }

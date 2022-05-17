@@ -8,4 +8,8 @@ module.exports = function ( app ) {
   app.get( '/api/product/all', ProductControler.getProducts );
   // Get a single product
   app.get( '/api/product/:id', ProductControler.getProduct );
+  // Update a product
+  app.put( '/api/product/:id', ProductControler.updateProduct );
+  // Delete a product
+  app.delete( '/api/product/:id', ProductControler.deleteProduct );
 };
