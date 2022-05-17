@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
-export default () => {
+export default ({submited}) => {
     //keep track of what is being typed via useState hook
     const [Title, setTitle] = useState(""); 
     const [Price, setPrice] = useState("");
@@ -10,12 +10,15 @@ export default () => {
         //prevent default behavior of the submit
         e.preventDefault();
         //make a post request to create a new person
-        axios.post('http://localhost:8000/api/product/create', {
+        axios.post( 'http://localhost:8000/api/product/create', {
             Title,
             Price,
             Description
-        })
-            .then(res=>console.log(res))
+        } )
+            .then( res => {
+                submited();
+                console.log( res )
+            })
             .catch(err=>console.log(err))
     }
     //onChange to update firstName and lastName
