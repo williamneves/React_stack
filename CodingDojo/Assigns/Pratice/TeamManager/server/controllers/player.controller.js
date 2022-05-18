@@ -8,7 +8,7 @@ module.exports.index = (request, response) => {
 // Require Player model
 const Player = require('../models/player.model');
 // Require Games model
-const Games = require('../models/games.model');
+const Games = require('../models/player.model');
 
 // Export createPlayer method
 module.exports.createPlayer = (request, response) => {
@@ -48,45 +48,13 @@ module.exports.getPlayerById = (request, response) => {
 		.then((player) => response.json(player))
 		.catch((err) => response.json(err));
 };
-// Export getPlayerByName method
-module.exports.getPlayerByName = (request, response) => {
-	const { name } = request.params;
-	Player.findOne({ name })
-		.then((player) => response.json(player))
-		.catch((err) => response.json(err));
-};
-// Export getPlayerByPosition method
-module.exports.getPlayerByPosition = (request, response) => {
-	const { position } = request.params;
-	Player.find({ preferredPosition: position })
-		.then((players) => response.json(players))
-		.catch((err) => response.json(err));
-};
-// Export getPlayerByGame method
-module.exports.getPlayerByGame = (request, response) => {
-	const { gameId } = request.params;
-	Player.find({ games: gameId })
-		.then((players) => response.json(players))
-		.catch((err) => response.json(err));
-};
-// Export updatePlayer method
-module.exports.updatePlayer = (request, response) => {
-	const { id } = request.params;
-	const { name, preferredPosition } = request.body;
-	Player.findByIdAndUpdate(id, {
-		name,
-		preferredPosition,
-	})
-		.then((player) => response.json(player))
-		.catch((err) => response.json(err));
-};
 // Export deletePlayer method
-module.exports.deletePlayer = (request, response) => {
-	const { id } = request.params;
-	Player.findByIdAndDelete(id)
-		.then((player) => response.json(player))
-		.catch((err) => response.json(err));
-};
+module.exports.deletePlayerById = ( request, response ) => {
+	Player.findByIdAndDelete( request.params.id )
+			.then( person => response.json( person ) )
+			.catch( err => response.status( 400 ).json( err ) );
+}
+
 
 // Export createGame method
 module.exports.createGame = (request, response) => {
@@ -95,7 +63,7 @@ module.exports.createGame = (request, response) => {
 		name,
 	})
 		.then((game) => response.json(game))
-		.catch((err) => response.json(err));
+		.catch( err => response.status( 400 ).json( err ) );
 };
 // Export getAllGames method
 module.exports.getAllGames = (request, response) => {

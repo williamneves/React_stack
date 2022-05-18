@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { MDBListGroup, MDBListGroupItem } from 'mdb-react-ui-kit';
 import { useNavigate, useLocation } from 'react-router-dom';
+import CreateGame from './common/CreateGame';
 
 const ListAddTab = () => {
 	const navigate = useNavigate();
@@ -33,6 +34,7 @@ const ListAddTab = () => {
 				</MDBListGroupItem>
 			</MDBListGroup>
 			<Outlet />
+			<CreateGame />
 		</React.Fragment>
 	);
 };

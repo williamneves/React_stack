@@ -5,5 +5,9 @@ module.exports = function (app) {
 	// Create a new player
 	app.post('/api/player', PlayerController.createPlayer);
 	// Show all players
-	app.get('/api/players', PlayerController.getAllPlayers);
+	app.get( '/api/players', PlayerController.getAllPlayers );
+	// Delete a player
+	app.delete( '/api/player/:id', PlayerController.deletePlayerById );
+	// add a game
+	app.post('/api/game', PlayerController.addGame);
 };

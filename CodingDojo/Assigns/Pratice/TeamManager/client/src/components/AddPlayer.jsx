@@ -25,7 +25,7 @@ const AddPlayer = () => {
 			.then((res) => {
 				console.log(res);
 				setLoading(false);
-				// navigate( '/list' );
+				navigate( '/list' );
         // set player to empty
         setPlayer( {
           name: '',
