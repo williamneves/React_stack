@@ -47,7 +47,7 @@ const About = () => {
           </div>
 
           <p>
-          I'm a Full-Stack Software Engineer, looking for a different experience. After 10 years of <em>successful</em> corporate experience, I decided to challenge myself and follow the path that I am certain I will be more passionate and even better at.
+          I'm a Full-Stack Software Engineer, looking for a different experience. After 10 years of <em>successful</em> corporate experience, I decided to challenge myself and follow the path that I am certain I will be more passionate and even better atn.
           </p>
           <p>
           If you're looking for someone highly motivated, with experience and unique skills, you've found it. <b>Let's talk?</b>
