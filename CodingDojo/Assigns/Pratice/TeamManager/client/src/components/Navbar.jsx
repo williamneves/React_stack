@@ -79,17 +79,12 @@ export default function ({ title }) {
 									<MDBNavbarLink tag='div'>Home</MDBNavbarLink>
 								</Link>
 							</MDBNavbarItem>
-							{/* <MDBNavbarItem>
-								<Link to="/">
-									<MDBNavbarLink tag='span'>Features</MDBNavbarLink>
+							<MDBNavbarItem>
+								<Link to="/games">
+									<MDBNavbarLink tag='div'>Games</MDBNavbarLink>
 								</Link>
 							</MDBNavbarItem>
-							<MDBNavbarItem>
-								<MDBNavbarLink href='#'>Pricing</MDBNavbarLink>
-							</MDBNavbarItem>
-							<MDBNavbarItem>
-								<MDBNavbarLink href='#'>About</MDBNavbarLink>
-							</MDBNavbarItem> */}
+							
 						</MDBNavbarNav>
 						<SwitchTheme themeColor={themeColor} handleChangeThemeColor={handleChangeThemeColor} />
 					</MDBCollapse>

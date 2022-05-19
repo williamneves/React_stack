@@ -24,6 +24,7 @@ const port = 8000;
 
 // require routes
 require('./server/routes/player.routes')(app); // This is new
+require('./server/routes/games.routes')(app); // This is new
 
 // app listen on port
 app.listen(port, () => {

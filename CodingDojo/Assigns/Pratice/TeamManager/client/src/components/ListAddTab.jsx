@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { MDBListGroup, MDBListGroupItem } from 'mdb-react-ui-kit';
 import { useNavigate, useLocation } from 'react-router-dom';
-import CreateGame from './common/CreateGame';
+// import CreateGame from './common/CreateGame';
 
 const ListAddTab = () => {
 	const navigate = useNavigate();
@@ -22,7 +22,7 @@ const ListAddTab = () => {
 					active={activeItem === '/list' ? true : false}
 					type='button'
 					onClick={() => navigate('list')}>
-					List
+					All Players
 				</MDBListGroupItem>
 				<MDBListGroupItem
 					tag='button'
@@ -34,7 +34,7 @@ const ListAddTab = () => {
 				</MDBListGroupItem>
 			</MDBListGroup>
 			<Outlet />
-			<CreateGame />
+			{/* <CreateGame /> */}
 		</React.Fragment>
 	);
 };

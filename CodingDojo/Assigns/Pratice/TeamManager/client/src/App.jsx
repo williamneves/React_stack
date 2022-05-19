@@ -9,6 +9,8 @@ import { MDBContainer } from 'mdb-react-ui-kit';
 import ListAddTab from './components/ListAddTab';
 import TablePlayers from './components/TablePlayers';
 import AddPlayer from './components/AddPlayer';
+import GamesList from './components/GamesList';
+import TablePlayersinGame from './components/TablePlayersinGame';
 
 function App() {
 	const [themeColor, setThemeColor] = useState(
@@ -25,9 +27,12 @@ function App() {
 				<Navbar title={'Team Manager'} />
 				<MDBContainer breakpoint='md'>
 					<Routes>
-						<Route path='/' element={<ListAddTab/>}>
-							<Route path='list' element={<TablePlayers/>} />
-							<Route path='new' element={<AddPlayer/>} />
+						<Route path='/' element={<ListAddTab />}>
+							<Route path='list' element={<TablePlayers />} />
+							<Route path='new' element={<AddPlayer />} />
+						</Route>
+						<Route path='/games' element={ <GamesList /> }>
+							<Route path='game-:id' element={<TablePlayersinGame/>} />
 						</Route>
 					</Routes>
 				</MDBContainer>
