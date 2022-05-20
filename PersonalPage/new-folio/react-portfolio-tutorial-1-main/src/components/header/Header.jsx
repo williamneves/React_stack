@@ -8,7 +8,7 @@ import { CgPushRight } from 'react-icons/cg';
 
 const Header = () => {
   return (
-		<header>
+		<header id='home'>
 			<div className='container header__container'>
 				<div className='header-name-wrapper'>
 					<h2 style={{lineHeight:'0rem',fontSize:'1.5rem'}}><AiOutlineUser/></h2>

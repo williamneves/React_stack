@@ -4,6 +4,7 @@ import AVTR1 from '../../assets/avatar1.jpg'
 import AVTR2 from '../../assets/avatar2.jpg'
 import AVTR3 from '../../assets/avatar3.jpg'
 import AVTR4 from '../../assets/avatar4.jpg'
+import Shane from '../../assets/shame-humans-test.jpeg'
 
 // import Swiper core and required modules
 import { Pagination } from 'swiper';
@@ -18,9 +19,10 @@ import 'swiper/css/pagination';
 
 const data = [
   {
-    avatar: AVTR1,
-    name: 'Tina Snow',
-    review: 'Modi alias animi dolorem aliquam ea eum beatae maiores, consectetur praesentium quibusdam, commodi velit porro blanditiis consequatur qui molestiae. Dolorem, perspiciatis aspernatur labore distinctio ratione delectus voluptatem dolores deserunt explicabo nostrum ducimus quasi?'
+    avatar: Shane,
+    name: 'Shane Hummus',
+    review: `William helped me with a complicated project involving a quiz that helps identify careers that would be a good fit for your personality and I was really impressed with his background, leadership ability, and also how fast he picked up new information.
+    He also has a positive vibe and a can-do personality, I would recommend him to anyone thinking of hiring a software dev.`
   },
   {
     avatar: AVTR2,
