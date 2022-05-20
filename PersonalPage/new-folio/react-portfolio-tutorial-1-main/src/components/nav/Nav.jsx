@@ -3,19 +3,36 @@ import './nav.css'
 import {AiOutlineUser} from 'react-icons/ai'
 import {RiContactsLine, RiUserStarLine} from 'react-icons/ri'
 import {BiMessageSquareDetail, BiGitBranch, } from 'react-icons/bi'
-import {useState} from 'react'
-
+import { useState } from 'react';
+import Scrollspy from 'react-scrollspy';
 const Nav = () => {
-  const [activeNav, setActiveNav] = useState('#')
-  return (
-    <nav>
-      <a href="#" onClick={() => setActiveNav('#')} className={activeNav === '#' ? 'active' : ''}><AiOutlineUser/></a>
-      <a href="#about" onClick={() => setActiveNav('#about')} className={activeNav === '#about' ? 'active' : ''}><RiContactsLine/></a>
-      <a href="#experience" onClick={() => setActiveNav('#experience')} className={activeNav === '#experience' ? 'active' : ''}><RiUserStarLine/></a>
-      <a href="#portfolio" onClick={() => setActiveNav('#portfolio')} className={activeNav === '#portfolio' ? 'active' : ''}><BiGitBranch/></a>
-      <a href="#contact" onClick={() => setActiveNav('#contact')} className={activeNav === '#contact' ? 'active' : ''}><BiMessageSquareDetail/></a>
-    </nav>
-  )
-}
+	return (
+		<React.Fragment>
+			<nav>
+				<Scrollspy
+					items={['home', 'about', 'experience', 'portfolio', 'contact']}
+					currentClassName='active'
+					// componentTag='a'
+				>
+					<a href='#home' className='nav-link'>
+						<AiOutlineUser />
+					</a>
+					<a href='#about' className='nav-link'>
+						<RiContactsLine />
+					</a>
+					<a href='#experience' className='nav-link'>
+						<RiUserStarLine />
+					</a>
+					<a href='#portfolio'>
+						<BiGitBranch />
+					</a>
+					<a href='#contact'>
+						<BiMessageSquareDetail />
+					</a>
+				</Scrollspy>
+			</nav>
+		</React.Fragment>
+	);
+};
 
 export default Nav
