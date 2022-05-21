@@ -5,6 +5,8 @@ import AVTR2 from '../../assets/avatar2.jpg'
 import AVTR3 from '../../assets/avatar3.jpg'
 import AVTR4 from '../../assets/avatar4.jpg'
 import Shane from '../../assets/shame-humans-test.jpeg'
+import parse from 'html-react-parser'
+import {BsChatSquareQuote} from 'react-icons/bs'
 
 // import Swiper core and required modules
 import { Pagination } from 'swiper';
@@ -21,9 +23,8 @@ const data = [
   {
     avatar: Shane,
     name: 'Shane Hummus',
-    whois: 'Youtuber, Career Espesialist',
-    review: `William helped me with a complicated project involving a quiz that helps identify careers that would be a good fit for your personality and I was really impressed with his background, leadership ability, and also how fast he picked up new information.
-    He also has a positive vibe and a can-do personality, I would recommend him to anyone thinking of hiring a software dev.`
+    whois: 'Youtuber, Career Expert',
+    review: `William <b>helped</b> me with a complicated project involving a quiz that helps identify careers that would be a good fit for your personality and I was really <b>impressed</b> with his <b>background</b>, <b>leadership</b> ability, and also how <b>fast</b> he picked up new information.<br/>He also has a <b>positive vibe</b> and a can-do personality, I <b>would recommend him</b> to anyone thinking of hiring a software dev.`
   },
   {
     avatar: AVTR2,
@@ -49,6 +50,7 @@ const data = [
 const Testimonials = () => {
   return (
     <section id='testimonials'>
+      <h2 style={{lineHeight:'0rem',fontSize:'1.5rem', color: 'rgba(255, 255, 255, 0.6)',marginBottom:'0.2rem',paddingTop:'10px'}}><BsChatSquareQuote /></h2>
       <h4>Review from clients</h4>
       <h2>Testimonials</h2>
 
@@ -66,7 +68,7 @@ const Testimonials = () => {
               </div>
               <h4 className='client__name'>{name}</h4>
               <h5 className='client__whois'>{whois}</h5>
-              <small className='client__review'>{review}</small>
+                <small className='client__review'>{ parse( review )}</small>
             </SwiperSlide>
             )
           })

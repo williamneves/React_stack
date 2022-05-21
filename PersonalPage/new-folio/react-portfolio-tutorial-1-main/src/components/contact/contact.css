@@ -64,6 +64,15 @@ textarea::placeholder {
   color: var(--color-primary-variant);
 }
 
+button.btn.btn-primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+  background-color: #ccc;
+  color: #444;
+  border-color: #222;
+  pointer-events: none;
+  transition: ease all .3s;
+}
 /* ================ MEDIA QUERIES (MEDIUM DEVICES) ================= */
 @media screen and (max-width: 1024px) {
   .container.contact__container {
