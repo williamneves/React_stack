@@ -34,7 +34,7 @@
   color: var(--color-light);
 }
 
-.contact__option a {
+.contact__option span {
   margin-top: 0.7rem;
   display: inline-block;
   font-size: 0.8rem;
@@ -50,28 +50,60 @@ form {
 input,
 textarea {
   width: 100%;
-  padding: 1.5rem;
+  padding: 1.8rem 1.5rem 1rem 1.5rem;
   border-radius: 0.5rem;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.2);
   border: 2px solid var(--color-primary-variant);
   resize: none;
   color: var(--color-white);
   font-size: 1rem;
+  transition: all 0.2s ease-out;
+}
+textarea{
+  line-height: 1.4rem;
+}
+input:focus,
+textarea:focus {
+  background: rgba(0, 0, 0, 0.6);
+  border-color: var(--color-primary);
 }
 /* INput text area place holder*/
 input::placeholder,
 textarea::placeholder {
   color: var(--color-primary-variant);
 }
+.float-label {
+  display: flex;
+  flex-direction: column;
+  min-width: 350px;
+  position: relative;
+}
+.float-label label {
+  color: var(--color-primary-variant);
+  position: absolute;
+  transform: translate(25px, 20px) scale(1);
+  transform-origin: top left;
+  transition: all 0.2s ease-out;
+  pointer-events: none;
+}
+.float-label:focus-within label {
+  transform: translate(26px, 5px) scale(0.85);
+}
+.label-active {
+  transform: translate(26px, 5px) scale(0.85)!important;
+}
 
 button.btn.btn-primary:disabled {
   cursor: not-allowed;
   opacity: 0.8;
-  background-color: #ccc;
-  color: #444;
-  border-color: #222;
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  border-color:var(--color-primary);
   pointer-events: none;
   transition: ease all .3s;
+}
+.btn-transition {
+  transition: all 0.2s ease-out;
 }
 /* ================ MEDIA QUERIES (MEDIUM DEVICES) ================= */
 @media screen and (max-width: 1024px) {

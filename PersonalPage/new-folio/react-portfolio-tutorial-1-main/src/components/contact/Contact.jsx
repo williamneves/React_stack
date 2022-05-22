@@ -8,14 +8,59 @@ import { useRef } from 'react';
 import emailjs from 'emailjs-com';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import LoadingIcons from 'react-loading-icons';
+import TextareaAutosize from 'react-textarea-autosize';
 
 const Contact = () => {
 	const form = useRef();
 	const [sendingEmail, setSendingEmail] = useState(false);
+	const [formFields, setFormFields] = useState({
+		name: '',
+		email: '',
+		message: '',
+	});
+
+	const handleChange = (e) => {
+		setFormFields({
+			...formFields,
+			[e.target.name]: e.target.value,
+		});
+	};
 
 	const sendEmail = (e) => {
 		e.preventDefault();
-		setSendingEmail(true);
+		setSendingEmail( true );
+		
+		// Making some validations
+		// name needs to be at least 3 characters
+		// emails needs to be valid by regex
+		// message needs to be at least 10 characters
+		// if all validations are passed, send email
+		// send a toast message for each validation error
+
+		if ( formFields.name.length < 3 ) {
+			toast.error( 'Name needs to be at least 3 characters' )
+			setTimeout(() => {
+				setSendingEmail(false);
+			}, 1000);
+			return
+		}
+		else if ( !formFields.email.match( /^[^\s@]+@[^\s@]+\.[^\s@]+$/ ) ) {
+			toast.error( 'Email is not valid' )
+			setTimeout(() => {
+				setSendingEmail(false);
+			}, 2000);
+			return
+		}
+		else if ( formFields.message.length < 10 ) {
+			toast.error( 'Message needs to be at least 10 characters' )
+			setTimeout(() => {
+				setSendingEmail(false);
+			}, 2000);
+			return
+		}
+
+
 		emailjs
 			.sendForm('service_myportfolioreact', 'template_xnx5mbb', form.current, 'JwhE3u_awNI8Lulox')
 			.then(
@@ -76,9 +121,9 @@ const Contact = () => {
 							<MdOutlineEmail className='contact__option-icon' />
 							<h4>Email</h4>
 							<h5>gwilliam.nn@gmail.com</h5>
-							<a href='mailto:gwilliam.nn@gmail.com<' target='_blank'>
+							<span href='mailto:gwilliam.nn@gmail.com<' target='_blank'>
 								Send a message
-							</a>
+							</span>
 						</article>
 					</a>
 					<a href='https://www.facebook.com/drwilliamneves' target='_blank'>
@@ -86,9 +131,9 @@ const Contact = () => {
 							<RiMessengerLine className='contact__option-icon' />
 							<h4>Messenger</h4>
 							<h5>drwilliamneves</h5>
-							<a href='https://www.facebook.com/drwilliamneves' target='_blank'>
+							<span href='https://www.facebook.com/drwilliamneves' target='_blank'>
 								Send a message
-							</a>
+							</span>
 						</article>
 					</a>
 					<a href='https://api.whatsapp.com/send?phone=+19549945330' target='_blank'>
@@ -96,22 +141,74 @@ const Contact = () => {
 							<BsWhatsapp className='contact__option-icon' />
 							<h4>WhatsApp</h4>
 							<h5>+1 (954) 994-5330</h5>
-							<a href='https://api.whatsapp.com/send?phone=+19549945330' target='_blank'>
+							<span href='https://api.whatsapp.com/send?phone=+19549945330' target='_blank'>
 								Send a message
-							</a>
+							</span>
 						</article>
 					</a>
 				</div>
 				{/* END OF CONTACT OPTIONS */}
 				<form ref={form} onSubmit={sendEmail}>
-					<input type='text' name='name' placeholder='Your Full Name' required />
-					<input type='email' name='email' placeholder='Your Email' required />
-					<textarea name='message' rows='7' placeholder='Your Message' required></textarea>
-					<button type='submit' className='btn btn-primary' disabled={sendingEmail}>
-						Send Message{' '}
-						<RiMailSendLine
-							style={{ fontSize: '1rem', verticalAlign: 'bottom', marginLeft: '8px' }}
+					<div className='float-label'>
+						<input
+							type='text'
+							name='name'
+							required
+							value={formFields.name}
+							onChange={handleChange}
 						/>
+						<label htmlFor='name' className={formFields.name === '' ? '' : 'label-active'}>
+							Your Full Name
+						</label>
+					</div>
+					<div className='float-label'>
+						<input
+							type='text'
+							name='email'
+							required
+							value={formFields.email}
+							onChange={handleChange}
+						/>
+						<label htmlFor='name' className={formFields.email === '' ? '' : 'label-active'}>
+							Your Email
+						</label>
+					</div>
+					<div className='float-label'>
+						<TextareaAutosize
+							type='text'
+							minRows='5'
+							name='message'
+							required
+							value={formFields.message}
+							onChange={handleChange}></TextareaAutosize>
+						<label htmlFor='name' className={formFields.message === '' ? '' : 'label-active'}>
+							Your Message
+						</label>
+					</div>
+					<button
+						type='submit'
+						className='btn btn-primary btn-transition'
+						disabled={sendingEmail}
+						style={{ alignSelf: 'end', fontSize: '1.1rem' }}>
+						{sendingEmail ? (
+							<LoadingIcons.ThreeDots
+								fill='#E87538'
+								fillOpacity={0}
+								height='.8em'
+								speed={1.2}
+								stroke='transparent'
+								strokeOpacity={3}
+								style={{}}
+								width='150px'
+							/>
+						) : (
+							<React.Fragment>
+								Send Message{' '}
+								<RiMailSendLine
+									style={{ fontSize: '1.2rem', verticalAlign: 'bottom', marginLeft: '8px' }}
+								/>
+							</React.Fragment>
+						)}
 					</button>
 				</form>
 			</div>
